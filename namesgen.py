@@ -74,6 +74,18 @@ def get_final_name():
         final_name=surname+" "+name
     return final_name
 
+def get_final_name_from_name_surname(name, surname):
+    dice=random.choice([1,2,3])
+#    _log (dice)
+    if (dice==1):
+        final_name=name
+    if (dice==2):
+        final_name=name+" "+surname
+    if (dice==3):
+        final_name=surname+" "+name
+    return final_name
+
+
 
 def get_phone_full(country):
 #    country=countries[random.randint(1,len(countries)-1)].replace('\n', '')
@@ -136,7 +148,7 @@ def get_password():
 def new_data():
     name= get_name()
     surname=get_surname()
-    final_name=get_final_name()
+    final_name=get_final_name_from_name_surname(name, surname)
     country='RU'
     phone_full=get_phone_full(country)
     email=get_email_from_final_name(final_name)
