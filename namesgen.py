@@ -127,17 +127,18 @@ def get_password():
     password=random.choice('abcdefghijklmnopqruvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')+password
     return password
 
-name= get_name()
-surname=get_surname()
-final_name=get_final_name()
-country='RU'
-phone_full=get_phone_full(country)
-email=get_email_from_final_name(final_name)
-email2=get_email()
-print(name,surname, final_name, phone_full,email,email2)
 
 
 def new_data():
+    name= get_name()
+    surname=get_surname()
+    final_name=get_final_name()
+    country='RU'
+    phone_full=get_phone_full(country)
+    email=get_email_from_final_name(final_name)
+#    email2=get_email()
+    print(name,surname, final_name, phone_full,email)
+
     j={}
     j["name"]=name
     j["surname"]=surname
