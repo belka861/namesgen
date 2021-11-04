@@ -137,13 +137,17 @@ email2=get_email()
 print(name,surname, final_name, phone_full,email,email2)
 
 
-j={}
-j["name"]=name
-j["surname"]=surname
-j["phone_full"]=phone_full
-j["email"]=email
-json_object = json.dumps(j, indent = 4) 
-print(json_object)
+def new_data():
+    j={}
+    j["name"]=name
+    j["surname"]=surname
+    j["phone_full"]=phone_full
+    j["email"]=email
+    json_object = json.dumps(j, indent = 4) 
+    print(json_object)
+    return json_object
+
+
 
 
 
@@ -153,6 +157,7 @@ import json
 
 class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
+        json_object=new_data()
         parsed_path = urlparse(self.path)
         self.send_response(200)
         self.end_headers()
@@ -175,7 +180,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         parsed_path = urlparse(self.path)
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(jjencode())
+#        self.wfile.write(jjencode())
 #        self.wfile.write(json.dumps(j).encode())
 #        self.wfile.write(json.dumps({
 #            'method': self.command,
@@ -189,6 +194,6 @@ class RequestHandler(BaseHTTPRequestHandler):
         return
 
 if __name__ == '__main__':
-    server = HTTPServer(('localhost', 8000), RequestHandler)
+    server = HTTPServer(('0.0.0.0', 8000), RequestHandler)
     print('Starting server at http://localhost:8000')
     server.serve_forever()
