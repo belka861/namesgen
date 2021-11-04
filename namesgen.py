@@ -112,7 +112,11 @@ def get_email_from_final_name(final_name):
         username=(word+translit(final_name, reversed=True)).replace(" ", "_").replace("'","").lower()+password
     if (dice==4):
         username=(translit(final_name, reversed=True)+word).replace(" ", "_").replace("'","").lower()+password
-    return username
+    email=username+"@"+domain
+
+    return email
+
+
 
 def get_password():
     password=random.choice(['A','B','C','D','E','F','G','H'])
@@ -136,6 +140,7 @@ def new_data():
     country='RU'
     phone_full=get_phone_full(country)
     email=get_email_from_final_name(final_name)
+    password=get_password()
 #    email2=get_email()
     print(name,surname, final_name, phone_full,email)
 
@@ -144,6 +149,7 @@ def new_data():
     j["surname"]=surname
     j["phone_full"]=phone_full
     j["email"]=email
+    j["password"]=password
     json_object = json.dumps(j, indent = 4) 
     print(json_object)
     return json_object
