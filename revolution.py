@@ -17,7 +17,7 @@ while True:
         print(data)
         print(data["name"])
     time.sleep(10)
-    req='curl -v -F _wpcf7_version=5.4.2 -F _wpcf7_locale=ru_RU -F _wpcf7_unit_tag=wpcf7-f1319-p2584-o1 -F _wpcf7_container_post=2584 -F \'your-name='+data["name"]+" "+data["surname"]+'\' -F your-email='+data["email"]+' -F \'your-message='+data["phrase"]+'\'  https://revolutexpert.co/ru/wp-json/contact-form-7/v1/contact-forms/1319/feedback
+    req='curl -v -F _wpcf7_version=5.4.2 -F _wpcf7_locale=ru_RU -F _wpcf7_unit_tag=wpcf7-f1319-p2584-o1 -F _wpcf7_container_post=2584 -F \'your-name='+data["name"]+" "+data["surname"]+'\' -F your-email='+data["email"]+' -F \'your-message='+data["phrase"]+'\'  https://revolutexpert.co/ru/wp-json/contact-form-7/v1/contact-forms/1319/feedback'
     print (req)
     result = os.popen(req).read()
     print(result)
